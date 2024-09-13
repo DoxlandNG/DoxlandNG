@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du Joueur</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2f4f4f; /* Ardoise foncée */
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #003366; /* Bleu indigo */
+            color: #fff;
+            padding: 15px 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        nav {
+            margin-top: 60px; /* Ajusté pour le header fixe */
+            text-align: center;
+            background: #c0c0c0; /* Gris moyen */
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #003366; /* Bleu indigo */
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+            transition: color 0.3s, text-decoration 0.3s; /* Transition pour couleur et soulignement */
+        }
+
+        nav a:hover {
+            color: #0099cc; /* Cyan */
+            text-decoration: underline; /* Soulignement lors du survol */
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 80px auto 20px auto;
+        }
+
+        .welcome {
+            padding: 40px;
+            background: #fff; /* Fond blanc */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333; /* Texte en gris foncé pour contraste */
+        }
+
+        .welcome h2 {
+            color: #003366; /* Bleu indigo */
+        }
+
+        .player-details {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s; /* Transition pour transformation et ombre */
+        }
+
+        .player-details:hover {
+            transform: scale(1.05); /* Agrandissement léger */
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Ombre plus prononcée */
+        }
+
+        .player-image-container {
+            max-width: 100%;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .player-details img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s; /* Transition pour zoom */
+        }
+
+        .player-details img:hover {
+            transform: scale(1.1); /* Zoom léger lors du survol */
+        }
+
+        .player-details h2 {
+            color: #003366; /* Bleu indigo */
+            margin: 10px 0;
+        }
+
+        .player-details p {
+            color: #666; /* Gris moyen pour le texte */
+            margin: 10px 0;
+        }
+
+        .additional-info {
+            background: #e0e0e0; /* Gris clair */
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .additional-info h3 {
+            color: #003366; /* Bleu indigo */
+        }
+
+        .additional-info img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 10px 0;
+            transition: transform 0.3s; /* Transition pour zoom */
+        }
+
+        .additional-info img:hover {
+            transform: scale(1.05); /* Zoom léger lors du survol */
+        }
+
+        .footer {
+            background: #003366; /* Bleu indigo */
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Doxland NG</h1>
+    </header>
+
+    <nav>
+        <a href="index.html" onclick="showCategory('accueil')">Accueil</a>
+        <a href="index.html" onclick="showCategory('lime')">Lime</a>
+        <a href="index.html" onclick="showCategory('red')">Red</a>
+        <a href="index.html" onclick="showCategory('blue')">Blue</a>
+        <a href="index.html" onclick="showCategory('purple')">Purple</a>
+        <a href="index.html" onclick="showCategory('yellow')">Yellow</a>
+        <a href="index.html" onclick="showCategory('black')">Black</a>
+    </nav>
+
+    <div class="container">
+        <div class="welcome">
+            <h2>Bienvenue sur Doxland NG</h2>
+            <p>Nous sommes ravis de vous accueillir sur Doxland NG, le site ultime pour découvrir les dox de joueurs. Faites défiler la page pour voir tous les joueurs classés par serveur. Plus d'info sur discord.gg/doxland</p>
+        </div>
+
+        <div class="player-details">
+            <h2 id="player-name">Nom du Joueur</h2>
+            <div class="player-image-container">
+                <img id="player-image" src="" alt="Image du Joueur">
+            </div>
+            <p id="player-description">Description du Joueur</p>
+        </div>
+
+        <div class="additional-info">
+            <h3>Informations Supplémentaires</h3>
+            <p id="additional-text">Ajoutez ici des photos supplémentaires, des textes ou autres détails.</p>
+            <div id="additional-images"></div> <!-- Conteneur pour les images supplémentaires -->
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Doxland. Tous droits réservés.</p>
+    </div>
+
+    <script>
+        // Fonction pour extraire les paramètres d'URL
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const playerName = getQueryParameter('id');
+            const playerImage = document.getElementById('player-image');
+            const playerNameElement = document.getElementById('player-name');
+            const playerDescription = document.getElementById('player-description');
+            const additionalText = document.getElementById('additional-text');
+            const additionalImages = document.getElementById('additional-images');
+
+            // Définir les valeurs en fonction de l'ID du joueur
+            if (playerName === 'theredpoloytb') {
+                playerImage.src = 'https://skins.nationsglory.fr/face/theredpoloytb/15'; // Taille réduite
+                playerNameElement.textContent = 'Theredpoloytb';
+                playerDescription.textContent = 'Beau gosse qui joue sur le Lime actuellement banni pour trop beau.';
+                additionalText.textContent = "Paul-Arnaud, 18 ans, actuellement en étude d'informatique dans le nord de la France, très redoutable à éviter S tiers.";
+                additionalImages.innerHTML = `  
+                    <img src="https://cdn.discordapp.com/attachments/969991054633865276/1126517271209189468/IMG_20230706_123913.jpg?ex=66e59af7&is=66e44977&hm=4155d5e36a198dc3c8267d98090f230ab1ab12e6526047e97a0f2033db42e336&" alt="Image supplémentaire 1">
+                    <img src="https://cdn.discordapp.com/attachments/969991054633865276/1127319624422264972/20230707_202107.jpg?ex=66e5e337&is=66e491b7&hm=8ff7d8fb93acb08a90426422641e966a0ff551e62a14bf1a238bc5a57316d240&" alt="Image supplémentaire 2">
+                `;
+            } else if (playerName === 'luckyluck55') {
+                playerImage.src = 'https://skins.nationsglory.fr/face/luckyluck55/15'; // Taille réduite
+                playerNameElement.textContent = 'Luckyluck55';
+                playerDescription.textContent = 'Pd qui joue sur le Lime actuellement banni pour raison d\'étude de médecine.';
+                additionalText.textContent = 'Ayoub, 18ans, en plein étude de médecine dans le nord de la France, il a des connaissances en physique que tu n’as pas, capable de t’endormir à vie comme Thiollier, S tier.';
+                additionalImages.innerHTML = `
+                    <img src="https://cdn.discordapp.com/attachments/767844708872749146/1284285122232975401/image.png?ex=66e6133a&is=66e4c1ba&hm=21e044212b6b712ddab45894e2b365bd73cdb8713ad34bf2fe8e36c220c38e49&" alt="Image supplémentaire 1">
+                    <img src="https://cdn.discordapp.com/attachments/767844708872749146/1085222077700771890/rn_image_picker_lib_temp_273b94f2-a075-4a68-8f09-84e6dd008313.jpg?ex=66e5aad1&is=66e45951&hm=e59f8bab02d87f154d5fa4880bfcfda6d799b05e56ee13293a5ac6c70a8d2eb5&" alt="Image supplémentaire 2">
+                    <img src="https://cdn.discordapp.com/attachments/1177613581404098683/1178424586631659672/image.png?ex=66e5eaeb&is=66e4996b&hm=6b194d1fbef8253e0080c68b5ea482799b0bb08455be075bb4cbc2f341287487&" alt="Image supplémentaire 3">
+                `;
+            } else if (playerName === 'snippera') {
+                const snipperImage = 'https://skins.nationsglory.fr/face/SnipperA/15';
+                const snipperName = 'SnipperA';
+                const snipperDescription = 'Pas vraiment de description, mec de cité simple qui est discret.';
+                const snipperAdditionalText = 'SnipperA est un joueur connu pour sa discrétion et son approche stratégique dans le jeu. Moi perso je le connais juste pas, forcé à lui bref prn le connait mskn ça fait de la peine mais vzy ta capté il tape fort donc S tiers :';
+                const snipperAdditionalImages = `
+                    <img src="https://cdn.discordapp.com/attachments/969991054633865276/1229305035846848623/image-10.png?ex=66e5ca47&is=66e478c7&hm=6dce4c4d5f09a44177f34a323dd21160778a87b1ada6766e11765b0f33ca774a&" alt="Image supplémentaire 1">
+                    <img src="https://cdn.discordapp.com/attachments/969991054633865276/1233113569231503440/cheater.jpg?ex=66e5cd81&is=66e47c01&hm=98d74d952a35845fac571cbcaa9458c2807cdff7bb8e587f52f052914376c536&" alt="Image supplémentaire 2">
+                `;
+                playerImage.src = snipperImage;
+                playerNameElement.textContent = snipperName;
+                playerDescription.textContent = snipperDescription;
+                additionalText.textContent = snipperAdditionalText;
+                additionalImages.innerHTML = snipperAdditionalImages;
+            }
+            // Ajouter des conditions supplémentaires pour d'autres joueurs
+        });
+    </script>
+</body>
+</html>
