@@ -155,12 +155,7 @@
 
     <nav>
         <a href="index.html" onclick="showCategory('accueil')">Accueil</a>
-        <a href="index.html" onclick="showCategory('lime')">Lime</a>
-        <a href="index.html" onclick="showCategory('red')">Red</a>
-        <a href="index.html" onclick="showCategory('blue')">Blue</a>
-        <a href="index.html" onclick="showCategory('purple')">Purple</a>
-        <a href="index.html" onclick="showCategory('yellow')">Yellow</a>
-        <a href="index.html" onclick="showCategory('black')">Black</a>
+  
     </nav>
 
     <div class="container">
@@ -185,7 +180,10 @@
     </div>
 
     <div class="footer">
-        <p>&copy; 2024 Doxland. Tous droits réservés.</p>
+        <footer>
+            <p>&copy; 2024 Doxland. Tous droits réservés.</p>
+            <p>Pour soumettre un dox ou demander un retrait --> discord.gg/doxland .</p>
+        </footer>
     </div>
 
     <script>
@@ -204,40 +202,7 @@
             const additionalImages = document.getElementById('additional-images');
 
             // Définir les valeurs en fonction de l'ID du joueur
-            if (playerName === 'theredpoloytb') {
-                playerImage.src = 'https://skins.nationsglory.fr/face/theredpoloytb/15'; // Taille réduite
-                playerNameElement.textContent = 'Theredpoloytb';
-                playerDescription.textContent = 'Beau gosse qui joue sur le Lime actuellement banni pour trop beau.';
-                additionalText.textContent = "Paul-Arnaud, 18 ans, actuellement en étude d'informatique dans le nord de la France, très redoutable à éviter S tiers.";
-                additionalImages.innerHTML = `  
-                    <img src="https://cdn.discordapp.com/attachments/969991054633865276/1126517271209189468/IMG_20230706_123913.jpg?ex=66e59af7&is=66e44977&hm=4155d5e36a198dc3c8267d98090f230ab1ab12e6526047e97a0f2033db42e336&" alt="Image supplémentaire 1">
-                    <img src="https://cdn.discordapp.com/attachments/969991054633865276/1127319624422264972/20230707_202107.jpg?ex=66e5e337&is=66e491b7&hm=8ff7d8fb93acb08a90426422641e966a0ff551e62a14bf1a238bc5a57316d240&" alt="Image supplémentaire 2">
-                `;
-            } else if (playerName === 'luckyluck55') {
-                playerImage.src = 'https://skins.nationsglory.fr/face/luckyluck55/15'; // Taille réduite
-                playerNameElement.textContent = 'Luckyluck55';
-                playerDescription.textContent = 'Pd qui joue sur le Lime actuellement banni pour raison d\'étude de médecine.';
-                additionalText.textContent = 'Ayoub, 18ans, en plein étude de médecine dans le nord de la France, il a des connaissances en physique que tu n’as pas, capable de t’endormir à vie comme Thiollier, S tier.';
-                additionalImages.innerHTML = `
-                    <img src="https://cdn.discordapp.com/attachments/767844708872749146/1284285122232975401/image.png?ex=66e6133a&is=66e4c1ba&hm=21e044212b6b712ddab45894e2b365bd73cdb8713ad34bf2fe8e36c220c38e49&" alt="Image supplémentaire 1">
-                    <img src="https://cdn.discordapp.com/attachments/767844708872749146/1085222077700771890/rn_image_picker_lib_temp_273b94f2-a075-4a68-8f09-84e6dd008313.jpg?ex=66e5aad1&is=66e45951&hm=e59f8bab02d87f154d5fa4880bfcfda6d799b05e56ee13293a5ac6c70a8d2eb5&" alt="Image supplémentaire 2">
-                    <img src="https://cdn.discordapp.com/attachments/1177613581404098683/1178424586631659672/image.png?ex=66e5eaeb&is=66e4996b&hm=6b194d1fbef8253e0080c68b5ea482799b0bb08455be075bb4cbc2f341287487&" alt="Image supplémentaire 3">
-                `;
-            } else if (playerName === 'snippera') {
-                const snipperImage = 'https://skins.nationsglory.fr/face/SnipperA/15';
-                const snipperName = 'SnipperA';
-                const snipperDescription = 'Pas vraiment de description, mec de cité simple qui est discret.';
-                const snipperAdditionalText = 'SnipperA est un joueur connu pour sa discrétion et son approche stratégique dans le jeu. Moi perso je le connais juste pas, forcé à lui bref prn le connait mskn ça fait de la peine mais vzy ta capté il tape fort donc S tiers :';
-                const snipperAdditionalImages = `
-                    <img src="https://cdn.discordapp.com/attachments/969991054633865276/1229305035846848623/image-10.png?ex=66e5ca47&is=66e478c7&hm=6dce4c4d5f09a44177f34a323dd21160778a87b1ada6766e11765b0f33ca774a&" alt="Image supplémentaire 1">
-                    <img src="https://cdn.discordapp.com/attachments/969991054633865276/1233113569231503440/cheater.jpg?ex=66e5cd81&is=66e47c01&hm=98d74d952a35845fac571cbcaa9458c2807cdff7bb8e587f52f052914376c536&" alt="Image supplémentaire 2">
-                `;
-                playerImage.src = snipperImage;
-                playerNameElement.textContent = snipperName;
-                playerDescription.textContent = snipperDescription;
-                additionalText.textContent = snipperAdditionalText;
-                additionalImages.innerHTML = snipperAdditionalImages;
-            }
+            
             // Ajouter des conditions supplémentaires pour d'autres joueurs
         });
     </script>
